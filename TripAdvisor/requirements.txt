@@ -1,0 +1,5 @@
+streamlit #for front end
+google-generativeai #model
+python-dotenv #load env variable
+langchain_google_genai
+langchain

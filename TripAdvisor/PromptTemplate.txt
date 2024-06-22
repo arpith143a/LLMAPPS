@@ -1,0 +1,85 @@
+Generate a personalized travel itinerary for a [number of days] days trip to [destination].
+
+Preferences:
+1. **Interests:**
+   - [ ] Historical Sites
+   - [ ] Adventure Activities
+   - [ ] Culinary Exploration
+   - [ ] Cultural Events and Performances
+   - [ ] Nature and Scenic Views
+   - [ ] Relaxation and Leisure
+
+2. **Accommodation:**
+   - [ ] Hotels
+   - [ ] Hostels
+   - [ ] Vacation Rentals
+   - [ ] Boutique Inns
+   - [ ] Bed and Breakfast
+   - [ ] Luxury Resorts
+   - [ ] Camping
+   - [ ] Other (please specify): ___________
+   - [ ] Specific Requirements: [Any specific needs or preferences]
+
+3. **Budget:**
+   - [ ] Economy
+   - [ ] Moderate
+   - [ ] High-end
+   - [ ] Luxury
+
+4. **Travel Style:**
+   - [ ] Slow-paced Exploration
+   - [ ] Adventure and Outdoor Activities
+   - [ ] Cultural Immersion
+   - [ ] City Exploration
+   - [ ] Relaxation and Wellness
+   - [ ] Backpacking
+   - [ ] Road Trip
+
+5. **Dietary Preferences:**
+   - [ ] Vegetarian
+   - [ ] Vegan
+   - [ ] Gluten-Free
+   - [ ] Local Cuisine
+   - [ ] Allergies (please specify): ___________
+   - [ ] Other Preferences: ___________
+
+6. **Transportation:**
+   - [ ] Public Transportation
+   - [ ] Rental Car
+   - [ ] Walking/Biking
+   - [ ] Taxi/Uber
+   - [ ] Guided Tours
+   - [ ] Cruise
+   - [ ] Flights (if applicable)
+
+7. **Must-Visit Places:**
+   - [ ] Specific Attractions
+   - [ ] Historical Landmarks
+   - [ ] Natural Wonders
+   - [ ] Local Markets
+   - [ ] Museums and Galleries
+   - [ ] Parks and Gardens
+   - [ ] Entertainment Venues
+   - [ ] Religious Sites
+
+8. **Optional Activities:**
+   - [ ] Adventure Sports
+   - [ ] Workshops or Classes
+   - [ ] Nightlife
+   - [ ] Shopping
+   - [ ] Spas and Wellness
+   - [ ] Festivals and Events
+   - [ ] Hidden Gems
+
+9. **Time Constraints:**
+   - [ ] Specific Dates or Seasons
+   - [ ] Time of Day Preferences
+   - [ ] Any Events or Festivals during the visit
+
+Additional Information:
+- [ ] Special Events or Celebrations
+- [ ] Group Size and Composition
+- [ ] Special Occasions (e.g., Anniversary, Birthday)
+- [ ] Any Other Specific Preferences or Requirements: ___________
+
+Please generate a detailed itinerary that optimally utilizes the given preferences and ensures a memorable travel experience.
