@@ -33,8 +33,11 @@ Please generate a detailed itinerary that optimally utilizes the given preferenc
     Answer:
     """
 
+    # model = ChatGoogleGenerativeAI(model="gemini-pro",
+    #                          temperature=0.3)
 
     prompt = PromptTemplate(template = prompt_template, input_variables = ["number_of_days","destination","start_date","end_date","Interests","Accomodation","Budget","Travel_style","Dietary_preferences","Transportation","Must_visit_places","optional_activities","Time_Constraints","Group_size"])
+    # chain = load_qa_chain(model, chain_type="stuff", prompt=prompt)
 
     model=genai.GenerativeModel('gemini-pro-vision')
     response=model.generate_content([prompt])
@@ -42,7 +45,9 @@ Please generate a detailed itinerary that optimally utilizes the given preferenc
     return response
 
 # Streamlit app
+# st.title("Travel Itinerary Generator")
 st.set_page_config(page_title="Travel Itinerary Generator")
+destination=st.text_input("Destination: ")
 
 # Preferences
 number_of_days = st.number_input("Enter the number of days", min_value=1, max_value=365)
@@ -121,15 +126,12 @@ if group_size == "Group":
 
 # Button to Generate Itinerary
 if st.button("Generate Itinerary"):
-
-    chain = get_conversational_chain()
-    response = chain(
-        { "number_of_days": number_of_days,
+    preferences = { "number_of_days": number_of_days,
         "destination": destination,
         "start_date" : start_date,
         "end_date": end_date,
         "Interests":Interests,
-        "Accomodation" : Accomodation,
+        "Accomodation" : Accommodation,
         "Budget": Budget,
         "Travel_style": Travel_style,
         "Dietary_preferences": Dietary_preferences,
@@ -137,9 +139,35 @@ if st.button("Generate Itinerary"):
         "Must_visit_places": Must_visit_places,
         "optional_activities": optional_activities,
         "Time_Constraints": optional_activities,
-        "Group_size": Group_size
+        "Group_size": group_size
         }
-        , return_only_outputs=True)
 
-    print(response)
-    st.write("Reply: ", response["output_text"])
+    # Call the Gemini model
+    generated_itinerary = get_conversational_chain()
+
+    # Display the generated itinerary
+    if generated_itinerary:
+        st.subheader("Generated Itinerary:")
+        st.write(generated_itinerary)
+
+    # chain = get_conversational_chain()
+    # response = chain(
+    #     { "number_of_days": number_of_days,
+    #     "destination": destination,
+    #     "start_date" : start_date,
+    #     "end_date": end_date,
+    #     "Interests":Interests,
+    #     "Accomodation" : Accomodation,
+    #     "Budget": Budget,
+    #     "Travel_style": Travel_style,
+    #     "Dietary_preferences": Dietary_preferences,
+    #     "Transportation": Transportation,
+    #     "Must_visit_places": Must_visit_places,
+    #     "optional_activities": optional_activities,
+    #     "Time_Constraints": optional_activities,
+    #     "Group_size": Group_size
+    #     }
+    #     , return_only_outputs=True)
+
+    # print(response)
+    # st.write("Reply: ", response["output_text"])
