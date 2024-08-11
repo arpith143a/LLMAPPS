@@ -1,0 +1,17 @@
+AWS-Bedrock streamlit app
+use boto3 for accessing AWS LLM models
+use amazon bedrock embeddings
+use pdfs in data folder
+app has update option to create vectors and store the file in local
+app has option to use both LLM models
+
+at beginning setup credentials using awscli
+create IAM user in aws with Adminstrator access
+create access key for the same user with awscli option
+configure on local go to location of the folder where app.py is there and virtual env is created and type below:
+aws configure
+provide access key id
+provide secret key
+provide region
+provide output format
+
