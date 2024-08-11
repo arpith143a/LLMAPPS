@@ -1,0 +1,47 @@
+Graphdb & langchain:
+explained theoritical concept (book)
+
+Langchain(Integrating groq and neo4)
+groq(has API that has access to multiple open source LLMs)
+neo4j(graph database) web demo:
+create new free instance
+You will get credentials to access instance
+
+execute below commands:
+
+create(kanjiklub:Person{name: 'kanjiklub',born:1995})
+name&born are like column names
+Person is node with name kanjiklub as label
+create(Reynolds:Person{name:'Ryan Reynolds',born:1986})
+create(Evans:Person{name:'Chris Evans',born:1984})
+
+Create(America:Movie{title:'First avenger',year:2011})
+Create(Deadpool:Movie{title:'Deadpool',year:2016})
+
+MATCH(Evans:Person{name:'Chris Evans'}),(America:Movie{title:'First avenger'})CREATE(Evans)-[:Acted_IN]->(America)
+MATCH(Reynolds:Person{name:'Ryan Reynolds'}),(Deadpool:Movie{title:'Deadpool'})CREATE(Reynolds)-[:Acted_IN]->(Deadpool)
+
+
+In google colab:
+https://colab.research.google.com/drive/1BXLihTsECRC4eItsUzkOCQaF4e83GBD7#scrollTo=PHWvuWNYkShZ
+
+create dataset query:
+LOAD CSV WITH HEADERS FROM
+'https://raw.githubusercontent.com/tomasonjo/blog-datasets/main/movies/movies_small.csv' as row
+
+MERGE(m:Movie{id:row.movieId})
+SET m.released = date(row.released),
+    m.title = row.title,
+    m.imdbRating = toFloat(row.imdbRating)
+FOREACH (director in split(row.director, '|') |
+    MERGE (p:Person {name:trim(director)})
+    MERGE (p)-[:DIRECTED]->(m))
+FOREACH (actor in split(row.actors, '|') |
+    MERGE (p:Person {name:trim(actor)})
+    MERGE (p)-[:ACTED_IN]->(m))
+FOREACH (genre in split(row.genres, '|') |
+    MERGE (g:Genre {name:trim(genre)})
+    MERGE (m)-[:IN_GENRE]->(g))
+
+
+
